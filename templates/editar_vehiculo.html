@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar vehiculo</title>
+    <!-- Bootstrap CSS para estilos básicos -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <!-- editar_vehiculo.html -->
+<form method="POST" class="container mt-4">
+    <a href="{{ url_for('clientes') }}" class="btn btn-secondary">Volver</a>
+    
+    <h3>Editar Vehículo</h3>
+    <div class="form-group">
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" name="modelo" class="form-control" value="{{ vehiculo.modelo }}" required>
+    </div>
+    <div class="form-group">
+        <label for="placa">Placa:</label>
+        <input type="text" id="placa" name="placa" class="form-control" value="{{ vehiculo.placa }}" required>
+    </div>
+    <div class="form-group">
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" name="marca" class="form-control" value="{{ vehiculo.marca }}" required>
+    </div>
+    <div class="form-group">
+        <label for="ano_del_carro">Año del carro:</label>
+        <input type="number" id="ano_del_carro" name="ano_del_carro" class="form-control" value="{{ vehiculo.ano_del_carro }}" required>
+    </div>
+    <div class="form-group">
+        <label for="vencimiento_placa">Vencimiento de Placa:</label>
+        <input type="date" id="vencimiento_placa" name="vencimiento_placa" class="form-control" value="{{ vehiculo.vencimiento_placa }}" required>
+    </div>
+    <div class="form-group">
+        <label for="vin">VIN:</label>
+        <input type="text" id="vin" name="vin" class="form-control" value="{{ vehiculo.vin }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</form>
+</body>
+</html>

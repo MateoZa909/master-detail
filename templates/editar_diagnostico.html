@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Diagnóstico</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <a href="{{ url_for('clientes') }}" class="btn btn-secondary mb-3">Volver</a>
+
+        <h2 class="mb-4">Editar Diagnóstico</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label for="fecha">Fecha:</label>
+                <input type="date" class="form-control" id="fecha" name="fecha" value="{{ detalle.fecha }}" required>
+            </div>
+            <div class="form-group">
+                <label for="encargado">Encargado:</label>
+                <input type="text" class="form-control" id="encargado" name="encargado" value="{{ detalle.encargado }}" required>
+            </div>
+            <div class="form-group">
+                <label for="area">Área:</label>
+                <input type="text" class="form-control" id="area" name="area" value="{{ detalle.area }}" required>
+            </div>
+            <div class="form-group">
+                <label for="servicios">Servicios:</label>
+                <input type="text" class="form-control" id="servicios" name="servicios" value="{{ detalle.servicios }}" required>
+            </div>
+            <div class="form-group">
+                <label for="codigo_diag">Código Diag.:</label>
+                <input type="text" class="form-control" id="codigo_diag" name="codigo_diag" value="{{ detalle.codigo_diag }}" required>
+            </div>
+            <div class="form-group">
+                <label for="comentarios">Comentarios:</label>
+                <textarea class="form-control" id="comentarios" name="comentarios" rows="3">{{ detalle.comentarios }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="horas">Horas:</label>
+                <input type="number" class="form-control" id="horas" name="horas" step="0.01" value="{{ detalle.horas }}" required>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="cotizar" name="cotizar" {% if detalle.cotizar %}checked{% endif %}>
+                <label class="form-check-label" for="cotizar">Cotizar</label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Guardar Cambios</button>
+        </form>
+    </div>
+</body>
+</html>
