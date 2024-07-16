@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar Nuevo Cliente</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
         /* Estilos CSS opcionales para mejorar la apariencia */
         body {
@@ -48,6 +49,8 @@
 </head>
 <body>
     <div class="container">
+        <a href="{{ url_for('clientes') }}" class="btn btn-secondary">Volver</a>
+
         <h2>Agregar Nuevo Cliente</h2>
         <form method="POST" action="{{ url_for('nuevo_cliente') }}">
             <div class="form-group">

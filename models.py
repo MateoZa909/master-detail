@@ -16,11 +16,10 @@ class Detalles(db.Model):
     fecha = db.Column(db.Date)
     encargado = db.Column(db.String(100))
     area = db.Column(db.String(100))
-    taller = db.Column(db.String(100))
     servicios = db.Column(db.String(100))
     codigo_diag = db.Column(db.String(50))
-    comentarios = db.Column(db.Text)
-    horas = db.Column(db.Float)
+    comentario = db.Column(db.Text)
+    horas = db.Column(db.Time)
     cotizar = db.Column(db.Boolean)
 
     maestro = db.relationship('Maestro', backref='detalles')
