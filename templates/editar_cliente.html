@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Cliente</title>
+    <!-- Bootstrap CSS para estilos básicos -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Editar Cliente</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ cliente.nombre }}" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" value="{{ cliente.telefono }}" required>
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input type="text" class="form-control" id="direccion" name="direccion" value="{{ cliente.direccion }}" required>
+            </div>
+            <div class="form-group">
+                <label for="codigo">Código</label>
+                <input type="text" class="form-control" id="codigo" name="codigo" value="{{ cliente.codigo }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{{ url_for('clientes') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+
+         <!-- Tabla de diagnósticos -->
+         <h2 class="mt-4">Diagnósticos</h2>
+         <table class="table">
+             <thead>
+                 <tr>
+                     <th>Fecha</th>
+                     <th>Encargado</th>
+                     <th>Área</th>
+                     <th>Taller</th>
+                     <th>Servicios</th>
+                     <th>Código Diag.</th>
+                     <th>Comentarios</th>
+                     <th>Horas</th>
+                     <th>Cotizar</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 {% for diagnostico in cliente.maestro.detalles %}
+                 <tr>
+                     <td>{{ diagnostico.fecha }}</td>
+                     <td>{{ diagnostico.encargado }}</td>
+                     <td>{{ diagnostico.area }}</td>
+                     <td>{{ diagnostico.taller }}</td>
+                     <td>{{ diagnostico.servicios }}</td>
+                     <td>{{ diagnostico.codigo_diag }}</td>
+                     <td>{{ diagnostico.comentarios }}</td>
+                     <td>{{ diagnostico.horas }}</td>
+                     <td>{{ 'Sí' if diagnostico.cotizar else 'No' }}</td>
+                 </tr>
+                 {% endfor %}
+             </tbody>
+         </table>
+    </div>
+</body>
+</html>
